@@ -4,43 +4,43 @@ void mergeArr(vector<int> &arr, int l, int mid, int r)
 {
     int l1 = mid + 1;
     int temp;
-    vector<int> arrSmaller;
-    vector<int> arrLarger;
+    vector<int> arrLeft;
+    vector<int> arrRight;
     for (int i = l; i <= mid; i++)
     {
-        arrSmaller.push_back(arr[i]);
+        arrLeft.push_back(arr[i]);
     }
     for (int i = l1; i < arr.size(); i++)
     {
-        arrLarger.push_back(arr[i]);
+        arrRight.push_back(arr[i]);
     }
     int i = 0;
     int j = 0;
     int k = l;
     while (i < mid - l + 1 && j < r - l1 + 1)
     {
-        if (arrSmaller[i] > arrLarger[j])
+        if (arrLeft[i] > arrRight[j])
         {
-            arr[k] = arrLarger[j];
+            arr[k] = arrRight[j];
             k++;
             j++;
         }
         else
         {
-            arr[k] = arrSmaller[i];
+            arr[k] = arrLeft[i];
             k++;
             i++;
         }
     }
     while (j < r - l1 + 1)
     {
-        arr[k] = arrLarger[j];
+        arr[k] = arrRight[j];
         k++;
         j++;
     }
     while (i < mid - l + 1)
     {
-        arr[k] = arrSmaller[i];
+        arr[k] = arrLeft[i];
         k++;
         i++;
     }
