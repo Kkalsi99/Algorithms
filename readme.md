@@ -9,3 +9,4 @@ This Repo consists of searching,sorting,and many other algorithms.All the codes 
 ### Sorting Algorithms
 
 - Merge sort
+- Quick sort
