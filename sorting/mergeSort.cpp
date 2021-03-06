@@ -1,4 +1,11 @@
 #include <bits/stdc++.h>
+#define print(arr)             \
+    {                          \
+        for (auto val : arr)   \
+            cout               \
+                << val << " "; \
+    }
+
 using namespace std;
 void mergeArr(vector<int> &arr, int l, int mid, int r)
 {
@@ -60,8 +67,5 @@ int main()
 {
     vector<int> arr = {4, 3, 2, 1, 0, 9, 8, 7, 6, 5};
     mergeSort(arr, 0, arr.size() - 1);
-    for (auto val : arr)
-    {
-        cout << val << " ";
-    }
+    print(arr);
 }
