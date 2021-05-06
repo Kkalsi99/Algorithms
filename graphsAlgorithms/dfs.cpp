@@ -1,4 +1,4 @@
-//print every element using BFS
+//print every element using DFS
 #include <bits/stdc++.h>
 using namespace std;
 class Node
@@ -7,34 +7,22 @@ public:
     int val;
     vector<Node *> children;
     Node() {}
-    Node(int _val)
+    Node(int val)
     {
-        val = _val;
+        this->val = val;
     }
-    Node(int _val, Node *_child)
+    Node(int val, Node *child)
     {
-        val = _val;
-        children.push_back(_child);
+        this->val = val;
+        this->children.push_back(child);
     }
 };
-void printByBfs(Node *root)
+void printByDfs(Node *root)
 {
-    queue<Node *> q;
-    q.push(root);
     cout << root->val << " ";
-    while (!q.empty())
+    for (auto child : root->children)
     {
-        int n = q.size();
-        for (int i = 0; i < n; i++)
-        {
-            Node *currentNode = q.front();
-            q.pop();
-            for (auto child : currentNode->children)
-            {
-                q.push(child);
-                cout << child->val << " ";
-            }
-        }
+        printByDfs(child);
     }
 }
 int main()
@@ -53,5 +41,5 @@ int main()
     root->children.push_back(new Node(4));
     root->children[2]->children.push_back(new Node(9));
 
-    printByBfs(root);
+    printByDfs(root);
 }
