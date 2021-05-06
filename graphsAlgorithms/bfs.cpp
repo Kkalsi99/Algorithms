@@ -11,10 +11,10 @@ public:
     {
         val = _val;
     }
-    Node(int _val, Node *_child)
+    Node(int val, vector<Node *> children)
     {
-        val = _val;
-        children.push_back(_child);
+        this->val = val;
+        this->children = children;
     }
 };
 void printByBfs(Node *root)

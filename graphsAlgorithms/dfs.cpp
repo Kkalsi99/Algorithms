@@ -11,10 +11,10 @@ public:
     {
         this->val = val;
     }
-    Node(int val, Node *child)
+    Node(int val, vector<Node *> children)
     {
         this->val = val;
-        this->children.push_back(child);
+        this->children = children;
     }
 };
 void printByDfs(Node *root)
